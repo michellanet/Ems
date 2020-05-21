@@ -1,0 +1,51 @@
+﻿@model EMS.Models.Leave
+
+@{
+    Layout = "~/Views/Shared/Administrator_Layout.cshtml";
+    ViewBag.Title = "Leave Requests";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Leave</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.startDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.startDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.endDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.endDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<EMS.Models.Shift>
+@{
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="well">
+                    <h3>Personal Information</h3>
+                </div>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>First Name:</td><td><span class="label label-default">@Model.First().Employee.firstName</span></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td><td> <span class="label label-default">@Model.First().Employee.lastName<span></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth:</td><td> <span class="label label-default">@Model.First().Employee.dob.ToShortDateString()</span></td>
+                        </tr>
+                        <tr>
+                            <td>mail:</td><td><span class="label label-default">@Model.First().Employee.email</span></td>
+                        </tr>
+                        <tr>
+                            <td>Address: </td><td><span class="label label-default">@Model.First().Employee.homeAddress</span></td>
+                        </tr>
+                        <tr>
+                            <td>Job:</td><td> <span class="label label-default">@Model.First().Employee.jobTitle</span></td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number: </td><td><span class="label label-default">@Model.First().Employee.phoneNo</span></td>
+                        </tr>
+                        <tr>
+                            <td>Authentication Type: </td><td><span class="label label-default">@Model.First().Employee.privilege</span></td>
+                        </tr>
+                    </tbody>
+                    </table>
+                            <p class="btn btn-default">
+                                @Html.ActionLink("Modify Personal Information", "EditDetails")
+                            </p>
+</div>
+            <div class="col-sm-6">
+                <div class="well">
+                    <h3>Quick Peek of Assigned Shifts</h3>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <p class="label label-default">@item.date.ToShortDateString()</p>
+                        <p/>
+                    }
+                    <p class="btn btn-default">
+                        @Html.ActionLink("Make Request", "Request")
+                    </p>
+                </div>
+            </div>
+    </div>

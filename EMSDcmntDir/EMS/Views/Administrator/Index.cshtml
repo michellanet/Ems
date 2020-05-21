@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EMS.Models.Employee>
+@{
+    Layout = "~/Views/Shared/Administrator_Layout.cshtml";
+    ViewBag.Title = "Administrator Profile";
+}
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3>Personal Information</h3>
+            </div>
+            <table class="table">
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>First Name:</td>
+                            <td><span class="label label-default">@item.firstName</span></td>
+                        </tr>
+                        <tr>
+                            <td>Last Name:</td>
+                            <td> <span class="label label-default">@item.lastName<span></td>
+                        </tr>
+                        <tr>
+                            <td>Username:</td>
+                            <td> <span class="label label-default">@item.username</span></td>
+                        </tr>
+                        <tr>
+                            <td>Date of Birth:</td>
+                            <td> <span class="label label-default">@item.dob.ToShortDateString()</span></td>
+                        </tr>
+                        <tr>
+                            <td>mail:</td>
+                            <td><span class="label label-default">@item.email</span></td>
+                        </tr>
+                        <tr>
+                            <td>Address: </td>
+                            <td><span class="label label-default">@item.homeAddress</span></td>
+                        </tr>
+                        <tr>
+                            <td>Job:</td>
+                            <td> <span class="label label-default">@item.jobTitle</span></td>
+                        </tr>
+                        <tr>
+                            <td>Phone Number: </td>
+                            <td><span class="label label-default">@item.phoneNo</span></td>
+                        </tr>
+                        <tr>
+                            <td>Authentication Type: </td>
+                            <td><span class="label label-default">@item.privilege</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <p class="btn btn-default">
+                @Html.ActionLink("Modify Personal Information", "EditDetails")
+            </p>
+        </div>
+    </div>
+</div>
+

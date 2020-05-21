@@ -1,0 +1,37 @@
+﻿
+@model IEnumerable<EMS.Models.DayOff>
+@{
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Day Off";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        @foreach (var item in Model)
+        {
+        <div>
+            @Html.HiddenFor(model => item.date)
+            @Html.HiddenFor(model => item.status)
+            @Html.HiddenFor(model => item.employeeId)
+            <p>
+                Request For: <span class="label label-default">@item.date.ToShortDateString()</span>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <span class="form-group">
+                    <input type="submit" value="Request" class="btn btn-default" />
+                </span>
+            </p>
+        </div>
+        }
+    </div>
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

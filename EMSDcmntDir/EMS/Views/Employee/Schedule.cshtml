@@ -1,0 +1,37 @@
+﻿@model IEnumerable<EMS.Models.Shift>
+@{
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "Schedule";
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3>Shift Record</h3>
+            </div>
+            @foreach (var item in Model)
+            {
+                <p><span><b>Attendance:</b> @item.date.ToShortDateString()</span><span class="badge"> @item.attendance</span></p>
+            }
+        </div>
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3>Performance Stats</h3>
+            </div>
+            <p>Worked Shifts <span class="badge">@ViewBag.present<span></p>
+            <p>Missed Shifts <span class="badge">@ViewBag.absent<span></p>
+            <p>Oncoming Shifts <span class="badge">@ViewBag.pending<span></p>
+            <P>Total Shifts <span class="badge">@ViewBag.total<span></P>
+            <P>Performance Index <span class="badge">@ViewBag.totalPrcnt<span></P>
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped" style="width:@ViewBag.bar"> @ViewBag.bar Completed</div>
+            </div>
+        </div>
+    </div>
+

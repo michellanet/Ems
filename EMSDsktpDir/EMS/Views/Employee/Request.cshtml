@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EMS.Models.DayOff>
+@{
+    Layout = "~/Views/Shared/Employee_Layout.cshtml";
+}@{
+    ViewBag.Title = "Request";
+}
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3>Requested Day-Off Details</h3>
+            </div>
+            @foreach (var item in Model)
+            {
+                <p><b>Requested DayOff: </b><span class="label label-default">@item.date.ToShortDateString()</span> <b>Status: </b><span class="label label-default">@item.status</span></p>
+            }
+            <p class="btn btn-default">
+                @Html.ActionLink("Request Day Off", "DayOff")
+            </p>
+        </div>
+
+
+        <div class="col-sm-6">
+            <div class="well">
+                <h3>Requested Vacation Details</h3>
+            </div>
+            @foreach (var item in ViewBag.employeeLeave)
+            {
+                <p><b>Start Date: </b><span class="label label-default">@item.startDate.ToShortDateString()</span> <b>End Date:</b> <span class="label label-default">@item.endDate.ToShortDateString()</span> <b>Status: </b><span class="label label-default">@item.status</span></p>
+
+            }
+            <p class="btn btn-default">
+                @Html.ActionLink("Request vacation", "Vacation")
+            </p>
+        </div>
+    </div>
+</div>
+
+
