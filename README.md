@@ -5,7 +5,7 @@
   
   Employee Username: mike password:root
   
-  NB: An admin can create a new employee profile, but the new employee can only recognised by the system when a shift has also been assigned to the new employee.
+  NB: An admin can create a new employee profile, but the new employee can only be recognised by the system when a shift has also been assigned to the new employee.
   
 # Project Description
 An employee scheduling system to management employees’ schedule and create interaction between managers/supervisors and employees for making leave and day-off requests and reviewing these requests. Also, this system provides report for employee to stay cautious of their performance level. 
